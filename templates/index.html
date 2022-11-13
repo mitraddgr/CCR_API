@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+  <meta charset="UTF-8">
+  <title>API de prédiction</title>
+  <style>
+  body {
+  margin-left: 200px;
+  background:url(https://www.123-credit-immobilier.com/wp-content/uploads/2020/06/pr%C3%AAt-%C3%A0-taux-z%C3%A9ro.jpg);
+            radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+            background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+
+}
+.center_div {
+  border: 1px solid gray;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: #d0f0f6;
+  text-align: left;
+  padding: 8px;
+}
+  </style>
+
+
+
+</head>
+
+<body>
+ <div id="client">
+	<h1>Prédiction pour l'octroi d'un crédit à partir d'un modèle</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+      <input type="text" name="id_client" placeholder="id_client" required="required" value="{{ request.form['id_client'] }}"/>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_dict}}
+
+ </div>
+
+</body>
+</html>
+
