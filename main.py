@@ -23,7 +23,7 @@ def predict(id_client):
     ID = float(id_client)
     X = df[df['SK_ID_CURR'] == ID]
 
-    ignore_features = ['SK_ID_CURR', 'INDEX']
+    ignore_features = ['SK_ID_CURR', 'INDEX', 'TARGET']
     relevant_features = [col for col in df.columns if col not in ignore_features]
 
     X = X[relevant_features]
