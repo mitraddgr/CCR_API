@@ -20,7 +20,7 @@ def home(request: Request):
 
 @app.post('/predict')
 def predict(id_client):
-    ID = int(id_client)
+    ID = float(id_client)
     X = df[df['SK_ID_CURR'] == ID]
 
     ignore_features = ['SK_ID_CURR', 'INDEX']
