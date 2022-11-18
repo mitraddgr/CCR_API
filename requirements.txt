@@ -1,7 +1,7 @@
 uvicorn==0.18.3
 fastapi==0.85.1
 pandas==1.5.1
-lightgbm==3.3.2
+lightgbm==3.3.0
 json5
 gunicorn
 Jinja2==3.1.1
