@@ -9,8 +9,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI(title="Déployer le modèle scoring des clients")
-df = pd.read_csv('./df_all.csv')
-model = pickle.load(open('./model_lgbm_3.pkl', 'rb'))
+df = pd.read_csv('./df_api.csv')
+model = pickle.load(open('./model_lgbm_api.pkl', 'rb'))
 
 templates = Jinja2Templates(directory="templates")
 
