@@ -9,8 +9,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI(title="Déployer le modèle scoring des clients")
-df = pd.read_csv('./database/df_all.csv')
-model = pickle.load(open('./database/model_lgbm_3.pkl', 'rb'))
+df = pd.read_csv('./df_all.csv')
+model = pickle.load(open('./model_lgbm_3.pkl', 'rb'))
 
 templates = Jinja2Templates(directory="templates")
 
@@ -23,7 +23,7 @@ def predict(id_client):
     ID = float(id_client)
     X = df[df['SK_ID_CURR'] == ID]
 
-    ignore_features = ['SK_ID_CURR']
+    ignore_features = ['SK_ID_CURR', 'TARGET', 'INDEX']
     relevant_features = [col for col in df.columns if col not in ignore_features]
 
     X = X[relevant_features]
