@@ -10,7 +10,7 @@ from fastapi.templating import Jinja2Templates
 
 app = FastAPI(title="Déployer le modèle scoring des clients")
 df = pd.read_csv('./df_api.csv')
-model = pickle.load(open('./model_lgbm_api.pkl', 'rb'))
+model = pickle.load(open('./lgbm_model.pkl', 'rb'))
 
 templates = Jinja2Templates(directory="templates")
 
