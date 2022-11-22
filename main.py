@@ -27,9 +27,10 @@ def predict(id_client : int):
 
     X = X[relevant_features]
     proba = model.predict_proba(X)
-    prediction_dict = {'probability' : float(proba[0][1])}
-   
-    return prediction_dict
+    probability = float(proba[0][1])
+    #prediction_dict = {'probability' : float(proba[0][1])}
+    return probability
+    #return prediction_dict
 
 
 if __name__ == '__main__':
