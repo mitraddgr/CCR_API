@@ -19,9 +19,9 @@ def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post('/predict')
-def predict(id_client):
-    ID = int(id_client)
-    X = df[df['SK_ID_CURR'] == ID]
+def predict(id_client : int):
+    #ID = int(id_client)
+    X = df[df['SK_ID_CURR'] == id_client]
 
     ignore_features = ['SK_ID_CURR', 'INDEX', 'TARGET']
     relevant_features = [col for col in df.columns if col not in ignore_features]
@@ -30,10 +30,11 @@ def predict(id_client):
     proba = model.predict_proba(X)
 
     prediction_dict = {}
-    prediction_dict.update({
-        'id_client': int(id_client),
-        'probability': float(proba[0][1]),
-    })
+    prediction_dict = {'id_client' : id_client, 'probability' : float(proba[0][1])
+    #prediction_dict.update({
+    #    'id_client': int(id_client),
+    #    'probability': float(proba[0][1]),
+    #})
 
     return prediction_dict
 
