@@ -29,7 +29,7 @@ def predict(id_client : int):
     proba = model.predict_proba(X)
     probability = float(proba[0][1])
     #prediction_dict = {'probability' : float(proba[0][1])}
-    return prediction_dict
+    return probability
     
 
 
