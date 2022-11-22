@@ -30,7 +30,7 @@ def predict(id_client : int):
     proba = model.predict_proba(X)
 
     prediction_dict = {}
-    prediction_dict = {'id_client' : id_client, 'probability' : float(proba[0][1])
+    prediction_dict = {'probability' : float(proba[0][1])
     #prediction_dict.update({
     #    'id_client': int(id_client),
     #    'probability': float(proba[0][1]),
