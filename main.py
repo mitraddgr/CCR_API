@@ -27,11 +27,19 @@ def predict(id_client : int):
 
     X = X[relevant_features]
     proba = model.predict_proba(X)
-    probability = float(proba[0][1])
+    
+    #prediction_dict = {}
+    #prediction_dict.update({
+    #    'id_client': int(id_client),
+    #    'probability': float(proba[0][1]),
+    #})
+    
     #prediction_dict = {'probability' : float(proba[0][1])}
+    #return prediction_dict
+    
+    probability = float(proba[0][1])
     return probability
     
-
 
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
