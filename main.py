@@ -20,7 +20,9 @@ def home(request: Request):
 
 @app.post('/predict')
 def predict(id_client : int):
+    print(id_client)
     X = df[df['SK_ID_CURR'] == id_client]
+    print(X.shape)
 
     ignore_features = ['SK_ID_CURR', 'INDEX', 'TARGET']
     relevant_features = [col for col in df.columns if col not in ignore_features]
@@ -33,6 +35,7 @@ def predict(id_client : int):
         'id_client': int(id_client),
         'probability': float(proba[0][1]),
     })
+    
     return prediction_dict
 
     #prediction_dict = {'probability' : float(proba[0][1])}
