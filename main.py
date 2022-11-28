@@ -19,11 +19,9 @@ def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.post('/predict')
-def predict(id_client : int):
-    print(id_client)
+def predict(id_client : int): 
     X = df[df['SK_ID_CURR'] == id_client]
-    print(X.shape)
-
+  
     ignore_features = ['SK_ID_CURR', 'INDEX', 'TARGET']
     relevant_features = [col for col in df.columns if col not in ignore_features]
 
