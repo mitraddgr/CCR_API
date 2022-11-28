@@ -37,12 +37,6 @@ def predict(id_client : int):
     })
     
     return prediction_dict
-
-    #prediction_dict = {'probability' : float(proba[0][1])}
-    #return prediction_dict
-    
-    #probability = float(proba[0][1])
-    #return probability
     
 
 if __name__ == '__main__':
